@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>709</width>
+    <height>363</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SuperSOD, alpha version </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTableWidget" name="table">
+      <row>
+       <property name="text">
+        <string> 1 </string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>C / µM</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>slope · s</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>error · s</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>IC / %</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>error IC / %</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>fit residual</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>weight</string>
+       </property>
+      </column>
+      <item row="0" column="0">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </item>
+      <item row="0" column="1">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </item>
+      <item row="0" column="2">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </item>
+      <item row="0" column="3">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </item>
+      <item row="0" column="5">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Indicator</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="cb_indicator">
+        <item>
+         <property name="text">
+          <string>NBT</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>CYTC</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="inp_cind">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>50</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>µM</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_fit">
+        <property name="text">
+         <string>Fit</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>709</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNewProject"/>
+    <addaction name="actionOpenProject"/>
+    <addaction name="actionSaveProject"/>
+    <addaction name="actionSaveProjectAs"/>
+    <addaction name="separator"/>
+    <addaction name="actionAppendData"/>
+    <addaction name="actionImportData"/>
+    <addaction name="actionExportData"/>
+    <addaction name="actionExportFigure"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuFit">
+    <property name="title">
+     <string>Fit</string>
+    </property>
+    <widget class="QMenu" name="menuWeights">
+     <property name="title">
+      <string>weights</string>
+     </property>
+     <addaction name="actionWeightUnit"/>
+     <addaction name="actionWeightQuadratic"/>
+    </widget>
+    <addaction name="menuWeights"/>
+    <addaction name="actionFitReport"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionHelp_Menu"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuFit"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNewProject">
+   <property name="text">
+    <string>New Project</string>
+   </property>
+  </action>
+  <action name="actionOpenProject">
+   <property name="text">
+    <string>Open Project</string>
+   </property>
+  </action>
+  <action name="actionExportData">
+   <property name="text">
+    <string>Export Data</string>
+   </property>
+  </action>
+  <action name="actionExportFigure">
+   <property name="text">
+    <string>Export Figure</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionSaveProject">
+   <property name="text">
+    <string>Save Project</string>
+   </property>
+  </action>
+  <action name="actionPlotNormal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Normal</string>
+   </property>
+  </action>
+  <action name="actionPlotLinearized">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Linearized</string>
+   </property>
+  </action>
+  <action name="actionImportData">
+   <property name="text">
+    <string>Import Data</string>
+   </property>
+  </action>
+  <action name="actionWeightUnit">
+   <property name="text">
+    <string>unit</string>
+   </property>
+  </action>
+  <action name="actionWeightQuadratic">
+   <property name="text">
+    <string>quadratic</string>
+   </property>
+  </action>
+  <action name="actionWeightManual">
+   <property name="text">
+    <string>manual</string>
+   </property>
+  </action>
+  <action name="actionHelp_Menu">
+   <property name="text">
+    <string>Help Menu</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionFitReport">
+   <property name="text">
+    <string>report</string>
+   </property>
+  </action>
+  <action name="actionSaveProjectAs">
+   <property name="text">
+    <string>Save Project as</string>
+   </property>
+  </action>
+  <action name="actionAppendData">
+   <property name="text">
+    <string>Append Data</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>412</x>
+     <y>309</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
